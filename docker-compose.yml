@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:18
+    container_name: restaurant_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "Sa@123456"
+      POSTGRES_DB: restaurant_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - restaurant_data:/var/lib/postgresql
+
+volumes:
+  restaurant_data:
